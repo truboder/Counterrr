@@ -54,6 +54,8 @@ public class Counter : MonoBehaviour
 
     private IEnumerator TimeCounter(float delay)
     {
+        WaitForSeconds wait = new WaitForSeconds(delay);
+
         while (_isCounting)
         {
             _count++;
@@ -61,7 +63,7 @@ public class Counter : MonoBehaviour
             CountChanged?.Invoke();
 
             Debug.Log(_count);
-            yield return new WaitForSeconds(delay);
+            yield return wait;
         }
     }
 }
